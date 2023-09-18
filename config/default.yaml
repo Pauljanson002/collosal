@@ -1,0 +1,14 @@
+workspace: experiment
+text: "a cartoon flamingo"
+neg_text: "blury,unrealistic,bad,noisy"
+ref_image: "/home/paulj/projects/collosal/guidance/flamingo.jpeg"
+seed: 2222
+device: cuda
+lr: 0.001
+guidance_scale: 100
+lambda_guidance: 1
+lambda_rgb: 0
+epochs: 10
+method: "dumb"
+wandb: disabled
+optimizer: adan

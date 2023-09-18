@@ -1,0 +1,8 @@
+They have the rgb loss to guide the model to represent a similar ground truth image , we can do that too for editing.
+
+Things to remember
+
+1. No gradient clipping implemented for now
+Initialize with zero 
+2. FP16 is not implemented
+3. As latent is not tried.
