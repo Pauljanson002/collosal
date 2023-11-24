@@ -1,0 +1,10 @@
+python main.py lr=0.0001 epochs=1000 method=dds optimizer=sgd  wandb=online workspace=hpo_sgd_lr0.0001_lambda2.0_guidance2.0 lambda_guidance=2.0 text="peacock in water" guidance_scale=2.0
+python main.py lr=0.1 epochs=1000 method=dds optimizer=sgd  wandb=online workspace=hpo_sgd_lr0.1_lambda0.5_guidance1.0 lambda_guidance=0.5 text="peacock in water" guidance_scale=1.0
+python main.py lr=0.05 epochs=1000 method=dds optimizer=adan  wandb=online workspace=hpo_adan_lr0.05_lambda0.01_guidance1.0 lambda_guidance=0.01 text="peacock in water" guidance_scale=1.0
+python main.py lr=1e-05 epochs=1000 method=dds optimizer=sgd  wandb=online workspace=hpo_sgd_lr1e-05_lambda2.0_guidance1.0 lambda_guidance=2.0 text="peacock in water" guidance_scale=1.0
+python main.py lr=0.0001 epochs=1000 method=dds optimizer=adan  wandb=online workspace=hpo_adan_lr0.0001_lambda2.0_guidance2.0 lambda_guidance=2.0 text="peacock in water" guidance_scale=2.0
+python main.py lr=0.0001 epochs=1000 method=dds optimizer=sgd  wandb=online workspace=hpo_sgd_lr0.0001_lambda0.1_guidance100.0 lambda_guidance=0.1 text="peacock in water" guidance_scale=100.0
+python main.py lr=0.0001 epochs=1000 method=dds optimizer=adan  wandb=online workspace=hpo_adan_lr0.0001_lambda0.1_guidance1.0 lambda_guidance=0.1 text="peacock in water" guidance_scale=1.0
+python main.py lr=0.1 epochs=1000 method=dds optimizer=adan  wandb=online workspace=hpo_adan_lr0.1_lambda0.5_guidance7.5 lambda_guidance=0.5 text="peacock in water" guidance_scale=7.5
+python main.py lr=0.0001 epochs=1000 method=dds optimizer=adan  wandb=online workspace=hpo_adan_lr0.0001_lambda10.0_guidance7.5 lambda_guidance=10.0 text="peacock in water" guidance_scale=7.5
+python main.py lr=0.001 epochs=1000 method=dds optimizer=sgd  wandb=online workspace=hpo_sgd_lr0.001_lambda0.1_guidance100.0 lambda_guidance=0.1 text="peacock in water" guidance_scale=100.0

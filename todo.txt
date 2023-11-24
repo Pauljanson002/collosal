@@ -1,0 +1,18 @@
+Todo -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Change generative fill to STTN
+Change with Modelscope
+Change the motion with SDS (pose parameters) [Across frame ???]
+Change the texture 
+
+Doing -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Change the shape(body parameters) with SDS. (Change it even better, multiple view point signals)
+
+
+Done -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Reapply the UV predicted map
+Reapply a standard UV map.
+Check with SDS for motion edit
+Course projects
+Edit SMPL parameters with SDS loss and a differentiable mesh renderer train the Image
+Generative fill 

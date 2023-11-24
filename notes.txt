@@ -1,0 +1,6 @@
+render_single_frame() - Has the smpl parameters 
+
+
+* Note about SMPL
+SMPL body parameters are linear combination of vector displacements so [-2,2] Betas are the plausible shapes. So use L2 norm losss ( or L2 scaled by standard deviation)
+We need to omit implausible shapes

@@ -3,7 +3,7 @@ import torch
 
 
 class ImageModel(nn.Module):
-    def __init__(self,init_tensor=None, *args, **kwargs) -> None:
+    def __init__(self,config,guidance,init_tensor=None, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         if init_tensor == None:
             self.image_representation = torch.nn.Parameter(
@@ -13,6 +13,5 @@ class ImageModel(nn.Module):
             self.image_representation = torch.nn.Parameter(
                 init_tensor, requires_grad=True
             )
-
     def forward(self):
         return self.image_representation

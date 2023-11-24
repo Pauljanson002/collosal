@@ -1,14 +1,16 @@
 workspace: experiment
-text: "a cartoon flamingo"
-neg_text: "blury,unrealistic,bad,noisy"
-ref_image: "/home/paulj/projects/collosal/guidance/flamingo.jpeg"
+text: "a flamingo rollerskating"
+ref_text: "a stork rollerskating"
+neg_text: ""
+ref_image: "/home/paulj/projects/collosal/guidance/flamingo_skate.png"
 seed: 2222
 device: cuda
-lr: 0.001
-guidance_scale: 100
+lr: 0.02
+guidance_scale: 15
 lambda_guidance: 1
 lambda_rgb: 0
 epochs: 10
 method: "dumb"
 wandb: disabled
 optimizer: adan
+as_latent: True

@@ -112,11 +112,13 @@ class StableDiffusion(nn.Module):
         noise_pred = noise_pred_uncond + guidance_scale * (noise_pred_pos - noise_pred_uncond)
         return noise_pred
 
-    def train_step(self, text_embeddings, pred_rgb, ref_rgb, guidance_scale=100, as_latent=False, grad_scale=1,save_guidance_path=None):
+    def train_step(self, text_embeddings,text_embeddings_ref, pred_rgb, ref_rgb, guidance_scale=100, as_latent=False, grad_scale=1,save_guidance_path=None):
 
         if as_latent:
-            latents_pred = F.interpolate(pred_rgb, (64, 64), mode='bilinear', align_corners=False) * 2 - 1
-            latents_ref = F.interpolate(ref_rgb, (64, 64), mode='bilinear', align_corners=False) * 2 - 1
+            # latents_pred = F.interpolate(pred_rgb, (64, 64), mode='bilinear', align_corners=False) * 2 - 1
+            # latents_ref = F.interpolate(ref_rgb, (64, 64), mode='bilinear', align_corners=False) * 2 - 1
+            latents_pred = pred_rgb
+            latents_ref = ref_rgb
         else:
             # interp to 512x512 to be fed into vae.
             pred_rgb_512 = F.interpolate(pred_rgb, (512, 512), mode='bilinear', align_corners=False)
@@ -133,7 +135,7 @@ class StableDiffusion(nn.Module):
             # add noise
             noise = torch.randn_like(latents_pred)
             noise_pred_pred = self.pred_noise_map(latents_pred,noise,t,guidance_scale,text_embeddings)
-            noise_pred_ref = self.pred_noise_map(latents_ref,noise,t,guidance_scale,text_embeddings)
+            noise_pred_ref = self.pred_noise_map(latents_ref,noise,t,guidance_scale,text_embeddings_ref)
 
         # import kiui
         # latents_tmp = torch.randn((1, 4, 64, 64), device=self.device)
@@ -177,7 +179,7 @@ class StableDiffusion(nn.Module):
 
                 # TODO: also denoise all-the-way
                 # all 3 input images are [1, 3, H, W], e.g. [1, 3, 512, 512]
-                viz_images = torch.cat([pred_rgb_512, ref_rgb_512],dim=0)
+                viz_images = torch.cat([pred_rgb_512],dim=0)
                 save_image(viz_images, save_guidance_path)
                 wandb.log({
                     "guidance/image":wandb.Image(viz_images)
